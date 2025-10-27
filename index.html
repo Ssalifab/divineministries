@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Divine Ministries - A Place of Worship & Community</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2c5aa0;
+            --secondary: #d4af37;
+            --light: #f8f9fa;
+            --dark: #343a40;
+            --accent: #8b0000;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.8rem;
+        }
+        
+        .nav-link {
+            font-weight: 500;
+            margin: 0 5px;
+        }
+        
+        .hero-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 150px 0;
+            text-align: center;
+        }
+        
+        .hero-section h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        
+        .section-title {
+            position: relative;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background: var(--secondary);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .service-card {
+            border: none;
+            border-radius: 10px;
+            transition: transform 0.3s;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .event-card {
+            border: none;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            transition: transform 0.3s;
+        }
+        
+        .event-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .event-date {
+            background: var(--primary);
+            color: white;
+            padding: 10px;
+            text-align: center;
+            font-weight: bold;
+        }
+        
+        .donation-section {
+            background: linear-gradient(rgba(44, 90, 160, 0.9), rgba(44, 90, 160, 0.9)), url('https://images.unsplash.com/photo-1560452992-e3d71e07b588?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 80px 0;
+        }
+        
+        .donation-option {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 20px;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        
+        .donation-option:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.05);
+        }
+        
+        .footer {
+            background: var(--dark);
+            color: white;
+            padding: 50px 0 20px;
+        }
+        
+        .footer h5 {
+            color: var(--secondary);
+            margin-bottom: 20px;
+        }
+        
+        .footer a {
+            color: #ddd;
+            text-decoration: none;
+        }
+        
+        .footer a:hover {
+            color: var(--secondary);
+        }
+        
+        .copyright {
+            border-top: 1px solid #444;
+            padding-top: 20px;
+            margin-top: 30px;
+            text-align: center;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            border-color: var(--primary);
+        }
+        
+        .btn-primary:hover {
+            background-color: #1e3d6f;
+            border-color: #1e3d6f;
+        }
+        
+        .btn-outline-primary {
+            color: var(--primary);
+            border-color: var(--primary);
+        }
+        
+        .btn-outline-primary:hover {
+            background-color: var(--primary);
+            border-color: var(--primary);
+        }
+        
+        .prayer-request-form, .contact-form {
+            background: var(--light);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .ministry-highlight {
+            padding: 80px 0;
+        }
+        
+        .ministry-highlight:nth-child(even) {
+            background: var(--light);
+        }
+        
+        .testimonial-card {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+        
+        .testimonial-img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 20px;
+        }
+        
+        .sermon-card {
+            border: none;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+        
+        .sermon-info {
+            padding: 20px;
+        }
+        
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--primary);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            opacity: 0;
+            transition: all 0.3s;
+            z-index: 1000;
+        }
+        
+        .back-to-top.show {
+            opacity: 1;
+        }
+        
+        .modal-content {
+            border-radius: 10px;
+            border: none;
+        }
+        
+        .modal-header {
+            background: var(--primary);
+            color: white;
+            border-radius: 10px 10px 0 0;
+        }
+    </style>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-cross text-primary me-2"></i>
+                Divine Ministries
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#services">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#events">Events</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#ministries">Ministries</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#give">Give</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="container">
+            <h1>Welcome to Divine Ministries</h1>
+            <p class="lead mb-4">A place of worship, fellowship, and spiritual growth</p>
+            <p>Join us as we seek God's presence and serve our community</p>
+            <div class="mt-4">
+                <a href="#services" class="btn btn-primary btn-lg me-2">Our Services</a>
+                <a href="#events" class="btn btn-outline-light btn-lg">Upcoming Events</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <h2 class="section-title">About Our Church</h2>
+                    <p>Divine Ministries is a vibrant community of believers dedicated to spreading the love of Christ and serving our community. Founded in 2000, we have been a beacon of hope and faith in our city for over 25 years.</p>
+                    <p>Our mission is to lead people into a growing relationship with Jesus Christ through worship, discipleship, and service. We believe in the power of prayer, the importance of community, and the transformative work of the Holy Spirit.</p>
+                    <p>Whether you're new to faith or have been walking with God for years, you'll find a welcoming community at Divine Ministries where you can grow spiritually and connect with others on the same journey.</p>
+                    <a href="#contact" class="btn btn-primary mt-3">Visit Us</a>
+                </div>
+                <div class="col-lg-6">
+                    <img src="/img/churchInterior.png" alt="Church interior" class="img-fluid rounded shadow">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title">Our Services</h2>
+            <p class="text-center mb-5">Join us for worship and fellowship</p>
+            
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card service-card text-center p-4">
+                        <div class="service-icon">
+                            <i class="fas fa-sun"></i>
+                        </div>
+                        <h4>Sunday Worship</h4>
+                        <p>Join us every Sunday at 9:00 AM and 11:00 AM for uplifting worship and biblical teaching.</p>
+                        <p class="text-muted"><i class="fas fa-clock me-2"></i>9:00 AM & 11:00 AM</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card service-card text-center p-4">
+                        <div class="service-icon">
+                            <i class="fas fa-pray"></i>
+                        </div>
+                        <h4>Wednesday Prayer</h4>
+                        <p>Midweek prayer service every Wednesday at 7:00 PM for corporate prayer and spiritual renewal.</p>
+                        <p class="text-muted"><i class="fas fa-clock me-2"></i>7:00 PM</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card service-card text-center p-4">
+                        <div class="service-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h4>Youth Service</h4>
+                        <p>Dynamic worship and relevant teaching for youth every Friday at 7:00 PM.</p>
+                        <p class="text-muted"><i class="fas fa-clock me-2"></i>Friday, 7:00 PM</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Section -->
+    <section id="events" class="py-5">
+        <div class="container">
+            <h2 class="section-title">Upcoming Events</h2>
+            <p class="text-center mb-5">Join us for these special events and programs</p>
+            
+            <div class="row">
+                <div class="col-md-6 col-lg-4">
+                    <div class="card event-card">
+                        <div class="event-date">
+                            <h5>JUN 15</h5>
+                            <p>Saturday, 9:00 AM</p>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Community Outreach</h5>
+                            <p class="card-text">Join us as we serve our local community through food distribution and prayer ministry.</p>
+                            <a href="#" class="btn btn-outline-primary">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card event-card">
+                        <div class="event-date">
+                            <h5>JUN 22</h5>
+                            <p>Saturday, 10:00 AM</p>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Marriage Enrichment Seminar</h5>
+                            <p class="card-text">A one-day seminar for couples seeking to strengthen their marriage through biblical principles.</p>
+                            <a href="#" class="btn btn-outline-primary">Register</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card event-card">
+                        <div class="event-date">
+                            <h5>JUL 5-7</h5>
+                            <p>Friday - Sunday</p>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Youth Summer Camp</h5>
+                            <p class="card-text">Three days of fun, fellowship, and spiritual growth for youth ages 13-18.</p>
+                            <a href="#" class="btn btn-outline-primary">Register</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-4">
+                <a href="#" class="btn btn-primary">View All Events</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ministries Section -->
+    <section id="ministries" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title">Our Ministries</h2>
+            <p class="text-center mb-5">Get involved and serve in our various ministries</p>
+            
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <div class="d-flex">
+                        <div class="flex-shrink-0">
+                            <i class="fas fa-hands-helping fa-2x text-primary"></i>
+                        </div>
+                        <div class="flex-grow-1 ms-3">
+                            <h4>Helping People in Need</h4>
+                            <p>Our outreach ministry provides food, clothing, and assistance to families in need within our community. We believe in demonstrating God's love through practical acts of service.</p>
+                            <a href="#" class="btn btn-sm btn-outline-primary">Volunteer</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="d-flex">
+                        <div class="flex-shrink-0">
+                            <i class="fas fa-pray fa-2x text-primary"></i>
+                        </div>
+                        <div class="flex-grow-1 ms-3">
+                            <h4>Praying for the Sick</h4>
+                            <p>Our prayer team is available after every service to pray for healing and restoration. We believe in the power of prayer to bring physical, emotional, and spiritual healing.</p>
+                            <a href="#" class="btn btn-sm btn-outline-primary">Request Prayer</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="d-flex">
+                        <div class="flex-shrink-0">
+                            <i class="fas fa-child fa-2x text-primary"></i>
+                        </div>
+                        <div class="flex-grow-1 ms-3">
+                            <h4>Children's Ministry</h4>
+                            <p>Engaging programs for children from birth to 5th grade where they learn about Jesus in a safe, fun environment tailored to their age group.</p>
+                            <a href="#" class="btn btn-sm btn-outline-primary">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="d-flex">
+                        <div class="flex-shrink-0">
+                            <i class="fas fa-music fa-2x text-primary"></i>
+                        </div>
+                        <div class="flex-grow-1 ms-3">
+                            <h4>Worship Ministry</h4>
+                            <p>Our worship team leads the congregation in heartfelt praise and worship during our services. If you have musical gifts, consider joining our team.</p>
+                            <a href="#" class="btn btn-sm btn-outline-primary">Join Team</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Give Section -->
+    <section id="give" class="donation-section">
+        <div class="container">
+            <h2 class="section-title text-white">Support Our Ministry</h2>
+            <p class="text-center text-white mb-5">Your generous giving enables us to continue our mission and outreach</p>
+            
+            <div class="row">
+                <div class="col-md-8 mx-auto">
+                    <div class="row">
+                        <div class="col-md-4 mb-3">
+                            <div class="donation-option" data-bs-toggle="modal" data-bs-target="#donationModal">
+                                <i class="fas fa-church fa-3x mb-3"></i>
+                                <h5>Tithes</h5>
+                                <p>Give your tithe as an act of worship</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <div class="donation-option" data-bs-toggle="modal" data-bs-target="#donationModal">
+                                <i class="fas fa-hand-holding-usd fa-3x mb-3"></i>
+                                <h5>Offering</h5>
+                                <p>Give beyond the tithe</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <div class="donation-option" data-bs-toggle="modal" data-bs-target="#donationModal">
+                                <i class="fas fa-gift fa-3x mb-3"></i>
+                                <h5>Special Gift</h5>
+                                <p>Support specific ministries or projects</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="text-center mt-4">
+                        <p class="mb-3">Other ways to give:</p>
+                        <div>
+                            <button class="btn btn-outline-light me-2">Bank Transfer</button>
+                            <button class="btn btn-outline-light">Mobile Payment</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-5">
+        <div class="container">
+            <h2 class="section-title">Contact Us</h2>
+            <p class="text-center mb-5">We'd love to hear from you</p>
+            
+            <div class="row">
+                <div class="col-md-8 mx-auto">
+                    <div class="contact-form">
+                        <form id="contactForm">
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="name" class="form-label">Name</label>
+                                    <input type="text" class="form-control" id="name" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="email" class="form-label">Email</label>
+                                    <input type="email" class="form-control" id="email" required>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="subject" class="form-label">Subject</label>
+                                <input type="text" class="form-control" id="subject" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="message" class="form-label">Message</label>
+                                <textarea class="form-control" id="message" rows="5" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row mt-5">
+                <div class="col-md-4 text-center mb-4">
+                    <i class="fas fa-map-marker-alt fa-2x text-primary mb-3"></i>
+                    <h5>Address</h5>
+                    <p>Bweyogerere Central Zone<br>Kampala, Uganda</p>
+                </div>
+                <div class="col-md-4 text-center mb-4">
+                    <i class="fas fa-phone fa-2x text-primary mb-3"></i>
+                    <h5>Phone</h5>
+                    <p>(+256) 777-123456</p>
+                </div>
+                <div class="col-md-4 text-center mb-4">
+                    <i class="fas fa-envelope fa-2x text-primary mb-3"></i>
+                    <h5>Email</h5>
+                    <p>info@divineministries.org</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h5>Divine Ministries</h5>
+                    <p>A place of worship, fellowship, and spiritual growth where everyone is welcome.</p>
+                    <div class="social-links">
+                        <a href="#" class="me-3"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="me-3"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="me-3"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="me-3"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#events">Events</a></li>
+                        <li><a href="#give">Give</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5>Service Times</h5>
+                    <ul class="list-unstyled">
+                        <li>Sunday Worship: 9:00 AM & 11:00 AM</li>
+                        <li>Wednesday Prayer: 7:00 PM</li>
+                        <li>Youth Service: Friday, 7:00 PM</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Divine Ministries. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <!-- Donation Modal -->
+    <div class="modal fade" id="donationModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Make a Donation</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="donationForm">
+                        <div class="mb-3">
+                            <label for="donationType" class="form-label">Donation Type</label>
+                            <select class="form-select" id="donationType">
+                                <option value="tithe">Tithe</option>
+                                <option value="offering">Offering</option>
+                                <option value="special">Special Gift</option>
+                                <option value="missions">Missions</option>
+                                <option value="benevolence">Benevolence Fund</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="amount" class="form-label">Amount ($)</label>
+                            <input type="number" class="form-control" id="amount" min="1" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="frequency" class="form-label">Frequency</label>
+                            <select class="form-select" id="frequency">
+                                <option value="one-time">One-time</option>
+                                <option value="weekly">Weekly</option>
+                                <option value="monthly">Monthly</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="paymentMethod" class="form-label">Payment Method</label>
+                            <select class="form-select" id="paymentMethod">
+                                <option value="credit">Credit/Debit Card</option>
+                                <option value="bank">Bank Transfer</option>
+                                <option value="mobile">Mobile Payment</option>
+                            </select>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="anonymous">
+                            <label class="form-check-label" for="anonymous">Give anonymously</label>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Proceed to Payment</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Prayer Request Modal -->
+    <div class="modal fade" id="prayerModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Submit Prayer Request</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="prayerForm">
+                        <div class="mb-3">
+                            <label for="prayerName" class="form-label">Your Name (Optional)</label>
+                            <input type="text" class="form-control" id="prayerName">
+                        </div>
+                        <div class="mb-3">
+                            <label for="prayerRequest" class="form-label">Prayer Request</label>
+                            <textarea class="form-control" id="prayerRequest" rows="4" required></textarea>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="contactMe">
+                            <label class="form-check-label" for="contactMe">I would like to be contacted</label>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Submit Request</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Back to top button
+        const backToTopButton = document.querySelector('.back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('show');
+            } else {
+                backToTopButton.classList.remove('show');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Form submission handlers
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! We will get back to you soon.');
+            this.reset();
+        });
+        
+        document.getElementById('donationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const donationType = document.getElementById('donationType').value;
+            const amount = document.getElementById('amount').value;
+            alert(`Thank you for your ${donationType} donation of $${amount}! You will be redirected to our secure payment portal.`);
+            this.reset();
+            // In a real implementation, you would redirect to a payment gateway
+        });
+        
+        document.getElementById('prayerForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for sharing your prayer request. Our prayer team will be lifting you up in prayer.');
+            this.reset();
+            const prayerModal = bootstrap.Modal.getInstance(document.getElementById('prayerModal'));
+            prayerModal.hide();
+        });
+        
+        // Initialize tooltips
+        const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+        const tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+            return new bootstrap.Tooltip(tooltipTriggerEl);
+        });
+    </script>
+</body>
+</html>
