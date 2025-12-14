@@ -482,8 +482,7 @@
                         </div>
                         <div class="card-body">
                             <h5 class="card-title">Location</h5>
-                            <p class="card-text">Namagera Village, Butagaya Subcounty, Kagoma County, Jinja District,
-                                Uganda</p>
+                            <p class="card-text">Namagera Village, Butagaya Subcounty, Kagoma County, Jinja District, Uganda</p>
                             <!-- <a href="#" class="btn btn-outline-primary">Register</a> -->
                         </div>
                     </div>
@@ -635,10 +634,11 @@
                     </div>
 
                     <div class="text-center mt-4">
-                        <p class="mb-3 text-white">Click any option above to view banking details</p>
-                        <button class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#donationModal">
-                            <i class="fas fa-info-circle me-2"></i>View All Payment Methods
-                        </button>
+                        <p class="mb-3">Other ways to give:</p>
+                        <div>
+                            <button class="btn btn-outline-light me-2">Bank Transfer</button>
+                            <button class="btn btn-outline-light">Mobile Payment</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -693,7 +693,7 @@
                 <div class="col-md-4 text-center mb-4">
                     <i class="fas fa-envelope fa-2x text-primary mb-3"></i>
                     <h5>Email</h5>
-                    <p>info@divinepowerofchrist.org</p>
+                    <p>info@divinepowerofchristministries.org</p>
                 </div>
             </div>
         </div>
@@ -745,119 +745,52 @@
         <i class="fas fa-arrow-up"></i>
     </a>
 
-    <!-- Donation Modal - Information Only -->
-    <div class="modal fade" id="donationModal" tabindex="-1" aria-labelledby="donationModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
+    <!-- Donation Modal -->
+    <div class="modal fade" id="donationModal" tabindex="-1">
+        <div class="modal-dialog">
             <div class="modal-content">
-                <div class="modal-header bg-primary text-white">
-                    <h5 class="modal-title" id="donationModalLabel">
-                        <i class="fas fa-donate me-2"></i>Donation Information
-                    </h5>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                <div class="modal-header">
+                    <h5 class="modal-title">Make a Donation</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body">
-                    <div class="text-center mb-4">
-                        <i class="fas fa-church fa-3x text-primary mb-3"></i>
-                        <h4 class="mb-2">Support Divine Power of Christ Ministries</h4>
-                        <p class="text-muted">Choose your preferred payment method below</p>
-                    </div>
-                    
-                    <!-- Bank Transfer Section -->
-                    <div class="card mb-3 border-primary">
-                        <div class="card-header bg-primary text-white">
-                            <h6 class="mb-0">
-                                <i class="fas fa-university me-2"></i> Bank Transfer - ABSA BANK UGANDA LTD
-                            </h6>
+                    <form id="donationForm">
+                        <div class="mb-3">
+                            <label for="donationType" class="form-label">Donation Type</label>
+                            <select class="form-select" id="donationType">
+                                <option value="tithe">Tithe</option>
+                                <option value="offering">Offering</option>
+                                <option value="special">Special Gift</option>
+                                <option value="missions">Missions</option>
+                                <option value="benevolence">Benevolence Fund</option>
+                            </select>
                         </div>
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="mb-3">
-                                        <strong class="d-block text-muted">Account Number:</strong>
-                                        <span class="fs-4 text-primary fw-bold">6008605694</span>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="mb-3">
-                                        <strong class="d-block text-muted">Account Name:</strong>
-                                        <span class="fs-5">Divine Power of Christ Ministries Ltd.</span>
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="mb-3">
+                            <label for="amount" class="form-label">Amount ($)</label>
+                            <input type="number" class="form-control" id="amount" min="1" required>
                         </div>
-                    </div>
-                    
-                    <!-- Mobile Money Section -->
-                    <div class="card mb-4 border-success">
-                        <div class="card-header bg-success text-white">
-                            <h6 class="mb-0">
-                                <i class="fas fa-mobile-alt me-2"></i> Mobile Money Payments
-                            </h6>
+                        <div class="mb-3">
+                            <label for="frequency" class="form-label">Frequency</label>
+                            <select class="form-select" id="frequency">
+                                <option value="one-time">One-time</option>
+                                <option value="weekly">Weekly</option>
+                                <option value="monthly">Monthly</option>
+                            </select>
                         </div>
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="mb-3">
-                                        <strong class="d-block">Primary Numbers:</strong>
-                                        <div class="mt-2">
-                                            <div class="mb-2">
-                                                <i class="fas fa-phone text-primary me-2"></i>
-                                                <span class="fw-bold">+256 771 696 769</span><br>
-                                                <small class="text-muted ms-4">Twesigye Ambroe</small>
-                                            </div>
-                                            <div class="mb-2">
-                                                <i class="fas fa-phone text-primary me-2"></i>
-                                                <span class="fw-bold">+256 752 626 203</span><br>
-                                                <small class="text-muted ms-4">Twesigye Ambrose</small>
-                                            </div>
-                                            <div class="mb-2">
-                                                <i class="fas fa-phone text-primary me-2"></i>
-                                                <span class="fw-bold">+256 752 109 637</span><br>
-                                                <small class="text-muted ms-4">Catherine Mpali</small>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="mb-3">
-                                        <strong class="d-block">Church Account:</strong>
-                                        <div class="mt-2">
-                                            <i class="fas fa-phone text-success me-2"></i>
-                                            <span class="fw-bold">+256 600 562 4728</span><br>
-                                            <small class="text-muted ms-4">Official Church Account</small>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="mb-3">
+                            <label for="paymentMethod" class="form-label">Payment Method</label>
+                            <select class="form-select" id="paymentMethod">
+                                <option value="credit">Credit/Debit Card</option>
+                                <option value="bank">Bank Transfer</option>
+                                <option value="mobile">Mobile Payment</option>
+                            </select>
                         </div>
-                    </div>
-                    
-                    <!-- Important Notes -->
-                    <div class="alert alert-info">
-                        <h6 class="alert-heading">
-                            <i class="fas fa-info-circle me-2"></i>Important Instructions
-                        </h6>
-                        <ul class="mb-0 ps-3">
-                            <li>Please include <strong>your name</strong> as the payment reference</li>
-                            <li>For tithes/offerings, specify the <strong>donation type</strong> in the reference</li>
-                            <li>Contact us for receipt requests via phone or email</li>
-                            <li>God bless you for your generous support!</li>
-                        </ul>
-                    </div>
-                    
-                    <!-- Quick Actions -->
-                    <div class="text-center mt-4">
-                        <p class="text-muted mb-3">
-                            <i class="fas fa-lightbulb me-2"></i>
-                            <strong>Tip:</strong> Take a screenshot for easy reference
-                        </p>
-                        <button type="button" class="btn btn-outline-primary me-2" onclick="copyBankDetails()">
-                            <i class="fas fa-copy me-2"></i>Copy Details
-                        </button>
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                            Close
-                        </button>
-                    </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="anonymous">
+                            <label class="form-check-label" for="anonymous">Give anonymously</label>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Proceed to Payment</button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -935,6 +868,15 @@
             this.reset();
         });
 
+        document.getElementById('donationForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const donationType = document.getElementById('donationType').value;
+            const amount = document.getElementById('amount').value;
+            alert(`Thank you for your ${donationType} donation of $${amount}! You will be redirected to our secure payment portal.`);
+            this.reset();
+            // In a real implementation, you would redirect to a payment gateway
+        });
+
         document.getElementById('prayerForm').addEventListener('submit', function (e) {
             e.preventDefault();
             alert('Thank you for sharing your prayer request. Our prayer team will be lifting you up in prayer.');
@@ -948,29 +890,6 @@
         const tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
             return new bootstrap.Tooltip(tooltipTriggerEl);
         });
-
-        // Copy bank details function
-        function copyBankDetails() {
-            const bankDetails = `ABSA BANK UGANDA LTD\nAccount Number: 6008605694\nAccount Name: Divine Power of Christ Ministries Ltd.\n\nMobile Money:\n+256 771 696 769 (Twesigye Ambroe)\n+256 752 626 203 (Twesigye Ambrose)\n+256 752 109 637 (Catherine Mpali)\n+256 600 562 4728 (Church Account)\n\nPlease include your name as reference.`;
-            
-            navigator.clipboard.writeText(bankDetails).then(() => {
-                alert('Bank details copied to clipboard!');
-            }).catch(err => {
-                console.error('Failed to copy: ', err);
-                // Fallback for older browsers
-                const textArea = document.createElement("textarea");
-                textArea.value = bankDetails;
-                document.body.appendChild(textArea);
-                textArea.select();
-                try {
-                    document.execCommand('copy');
-                    alert('Bank details copied to clipboard!');
-                } catch (err) {
-                    alert('Please manually copy the bank details.');
-                }
-                document.body.removeChild(textArea);
-            });
-        }
     </script>
 </body>
 
