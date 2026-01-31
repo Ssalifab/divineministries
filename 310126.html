@@ -2,13 +2,12 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Divine Power Of Christ Ministries - A Place of Worship & Community</title>
-    <link rel="icon" href="/img/favicon.ico" type="image/x-icon" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
-
+    <link rel="icon" href="/img/favicon.ico" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
             --primary: #2c5aa0;
@@ -34,8 +33,7 @@
         }
 
         .hero-section {
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-                url('https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
             background-size: cover;
             background-position: center;
             color: white;
@@ -106,8 +104,7 @@
         }
 
         .donation-section {
-            background: linear-gradient(rgba(44, 90, 160, 0.9), rgba(44, 90, 160, 0.9)),
-                url('https://images.unsplash.com/photo-1560452992-e3d71e07b588?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background: linear-gradient(rgba(44, 90, 160, 0.9), rgba(44, 90, 160, 0.9)), url('https://images.unsplash.com/photo-1560452992-e3d71e07b588?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
             background-size: cover;
             background-position: center;
             color: white;
@@ -184,12 +181,40 @@
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
 
+        .ministry-highlight {
+            padding: 80px 0;
+        }
+
+        .ministry-highlight:nth-child(even) {
+            background: var(--light);
+        }
+
         .testimonial-card {
             background: white;
             border-radius: 10px;
             padding: 30px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             margin-bottom: 30px;
+        }
+
+        .testimonial-img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 20px;
+        }
+
+        .sermon-card {
+            border: none;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+
+        .sermon-info {
+            padding: 20px;
         }
 
         .back-to-top {
@@ -224,90 +249,8 @@
             color: white;
             border-radius: 10px 10px 0 0;
         }
-
-        /* NEW: leadership card styles */
-        .leader-card {
-            border: none;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.10);
-            height: 100%;
-        }
-
-        /* .leader-photo {
-            width: 100%;
-            height: 260px;
-            object-fit: cover;
-            background: #eee;
-        } */
-        .leader-photo {
-            width: 100%;
-            height: 360px;
-            object-fit: cover;
-            object-position: center top;
-            /* pushes focus to the face */
-            background: #eee;
-        }
-
-
-        .leader-role {
-            color: var(--primary);
-            font-weight: 700;
-            font-size: 0.95rem;
-        }
-
-        .leader-name {
-            font-weight: 800;
-            margin-bottom: 0.25rem;
-        }
-
-        .text-clamp-4 {
-            display: -webkit-box;
-            -webkit-line-clamp: 4;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-        }
-
-        /* RESPONSIVE IMPROVEMENTS */
-        @media (max-width: 992px) {
-            .navbar-brand {
-                font-size: 1.35rem;
-            }
-
-            .hero-section {
-                padding: 110px 0;
-            }
-
-            .hero-section h1 {
-                font-size: 2.6rem;
-            }
-        }
-
-        @media (max-width: 576px) {
-            .hero-section {
-                padding: 90px 0;
-            }
-
-            .hero-section h1 {
-                font-size: 2.05rem;
-                line-height: 1.15;
-            }
-
-            .hero-section .lead {
-                font-size: 1.05rem;
-            }
-
-            .donation-section {
-                padding: 60px 0;
-            }
-
-            .leader-photo {
-                height: 220px;
-            }
-        }
     </style>
-
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
@@ -323,13 +266,27 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#events">Branches</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#ministries">Ministries</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#give">Give</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#services">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#events">Branches</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#ministries">Ministries</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#give">Give</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -351,13 +308,15 @@
     <!-- About Section -->
     <section id="about" class="py-5">
         <div class="container">
-            <div class="row align-items-center g-4">
-                <div class="col-lg-6">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0">
                     <h2 class="section-title">About Our Church</h2>
                     <p>Divine Power Of Christ Ministries is a non-denominational church of Christ based on the
-                        foundation of holiness and Righteousness.</p>
-                    <p>The ministry's vision is to reflect God's power through the teachings of Christ.
-                        Founded in 2008, we have been a beacon of hope and faith in our city for over 18 years.</p>
+                        foundation of holiness and Righteousness.
+                    <p></p>The ministry's vision is to reflect God's power
+                    through the teachings of Christ.
+                    Founded in 2008, we have been a beacon of hope and faith in our city for over 18
+                    years.</p>
                     <p>Our mission is to lead people into a growing relationship with Jesus Christ through worship,
                         discipleship, and service. We believe in the power of prayer, the importance of community, and
                         the transformative work of the Holy Spirit.</p>
@@ -366,6 +325,9 @@
                         same journey.</p>
                     <a href="#contact" class="btn btn-primary mt-3">Visit Us</a>
                 </div>
+                <!-- <div class="col-lg-6">
+                    <img src="/img/churchInterior.png" alt="Church interior" class="img-fluid rounded shadow">
+                </div> -->
 
                 <div class="col-lg-6">
                     <div id="churchCarousel" class="carousel slide rounded shadow" data-bs-ride="carousel">
@@ -386,7 +348,7 @@
                             </div>
                             <div class="carousel-item">
                                 <img src="/img/3.jpeg" class="d-block w-100 img-fluid rounded"
-                                    alt="Members worshipping together during a Sunday service.">
+                                    alt="Members of the congregation gathered in the sanctuary, singing and worshipping together during a Sunday service. The warm, welcoming atmosphere reflects the spiritual joy and community fellowship central to Divine Power Of Christ Ministries.">
                             </div>
                         </div>
                         <button class="carousel-control-prev" type="button" data-bs-target="#churchCarousel"
@@ -401,137 +363,42 @@
                         </button>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- NEW: Leadership Messages (below About Our Church) -->
-    <section id="leadership" class="py-5 bg-light">
-        <div class="container">
-            <h2 class="section-title">Messages from Leadership</h2>
-            <p class="text-center mb-5">Welcome messages and key highlights from our ministry leaders</p>
-
-            <div class="row g-4">
-                <!-- Head of Ministry -->
-                <div class="col-md-6 col-lg-4">
-                    <div class="card leader-card">
-                        <!-- Put your image file in your website folder, e.g. /img/head-of-ministry.jpg -->
-                        <img src="/img/Apostle-Ambrose.jpg" class="leader-photo" alt="Head of Ministry">
-                        <div class="card-body">
-                            <div class="leader-role mb-2"><i class="fa-solid fa-church me-2"></i>Head of Ministry</div>
-                            <h5 class="leader-name">Apostle Ambrose Twesigye</h5>
-                            <p class="text-muted mb-2">Message to the Church and the World</p>
-
-                            <p class="text-clamp-4 mb-3">
-                                Our message to the Church and the World is basically preparation! We are evidently
-                                living in the Last days
-                                and witnessing broad opening of scroll of Matthew 24 where Apocalyptic events mentioned
-                                by Jesus Christ
-                                are being revealed before our very eyes.
-                            </p>
-
-                            <button class="btn btn-sm btn-outline-primary" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#msgLeader">
-                                Read more
-                            </button>
-
-                            <div class="collapse mt-3" id="msgLeader">
-                                <div class="small">
-                                    <p><strong>Preparation for the last days:</strong> We are living in the Last days
-                                        and must remain vigilant.</p>
-                                    <p>The Lord Jesus emphasized in Matthew 25 that the church has two categories: wise
-                                        virgins who remain vigilant and foolish virgins who have lost their oil.</p>
-                                    <p>We are called to raise Teachers, Pastors, Evangelists, Prophets and Apostles and
-                                        send them out to communities to prepare the church for the soon return of our
-                                        Lord Jesus Christ.</p>
-                                    <p class="mb-0"><em>— Apostle Ambrose Twesigye</em></p>
-                                </div>
+                <!-- <div class="col-lg-6">
+                    <div id="churchCarousel" class="carousel slide rounded shadow" data-bs-ride="carousel">
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#churchCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                            <button type="button" data-bs-target="#churchCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                            <button type="button" data-bs-target="#churchCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                        </div>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="/img/churchInterior.png" class="d-block w-100 img-fluid rounded" alt="Church interior">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="/img/churchExterior.png" class="d-block w-100 img-fluid rounded" alt="Church exterior">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="/img/congregation.jpg" class="d-block w-100 img-fluid rounded" alt="Congregation during worship">
                             </div>
                         </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#churchCarousel" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#churchCarousel" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
                     </div>
-                </div>
-
-                <!-- Music Director -->
-                <div class="col-md-6 col-lg-4">
-                    <div class="card leader-card">
-                        <!-- Put your image file in your website folder, e.g. /img/music-director.jpg -->
-                        <img src="/img/Music-Director.jpeg" class="leader-photo" alt="Music Director">
-                        <div class="card-body">
-                            <div class="leader-role mb-2"><i class="fa-solid fa-music me-2"></i>Music Director</div>
-                            <h5 class="leader-name">Mpali Catherine</h5>
-                            <p class="text-muted mb-2">Head of Music</p>
-
-                            <p class="text-clamp-4 mb-3">
-                                Welcome to Divine Power of Christ Ministries! As the Music Director, I am delighted to
-                                serve and lead our
-                                congregation in worship through inspiring music and heartfelt praise...
-                            </p>
-
-                            <button class="btn btn-sm btn-outline-primary" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#msgMusic">
-                                Read more
-                            </button>
-
-                            <div class="collapse mt-3" id="msgMusic">
-                                <div class="small">
-                                    <p>Our music ministry is dedicated to creating an atmosphere where everyone can
-                                        encounter God's presence,
-                                        experience spiritual renewal, and grow deeper in faith.</p>
-                                    <p>We invite you to join us in lifting our voices and hearts in praise.</p>
-                                    <p>We also welcome any support regarding music—such as instruments and any other
-                                        form of support.</p>
-                                    <p class="mb-0"><em>— Mpali Catherine</em></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Church Administrator -->
-                <div class="col-md-12 col-lg-4">
-                    <div class="card leader-card">
-                        <!-- Put your image file in your website folder, e.g. /img/church-admin.jpg -->
-                        <img src="/img/churchAdmin.jpeg" class="leader-photo" alt="Church Administrator">
-                        <div class="card-body">
-                            <div class="leader-role mb-2"><i class="fa-solid fa-user-shield me-2"></i>Administrator
-                            </div>
-                            <h5 class="leader-name">Church Admin</h5>
-                            <p class="text-muted mb-2">A call to maturity, true gospel and salvation</p>
-
-                            <p class="text-clamp-4 mb-3">
-                                I greet you all in the precious name of our Lord and Savior Jesus Christ.
-                                We are living in a very critical generation—a generation with much knowledge, much
-                                activity, and many churches,
-                                yet also a generation facing great spiritual confusion...
-                            </p>
-
-                            <button class="btn btn-sm btn-outline-primary" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#msgAdmin">
-                                Read more
-                            </button>
-
-                            <div class="collapse mt-3" id="msgAdmin">
-                                <div class="small">
-                                    <p><strong>Reflection:</strong> the state of the Church, the Gospel we are
-                                        preaching, and the meaning of salvation in our generation.</p>
-                                    <p><strong>The Gospel:</strong> not prosperity alone, popularity, or comfort—Jesus
-                                        Christ died and rose again to save mankind.</p>
-                                    <p><strong>Salvation:</strong> not church membership—it's a personal relationship
-                                        with Jesus Christ, marked by repentance, faith, and obedience.</p>
-                                    <p class="mb-0"><em>— Church Administrator</em></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                </div> -->
 
             </div>
-
         </div>
     </section>
 
     <!-- Services Section -->
-    <section id="services" class="py-5">
+    <section id="services" class="py-5 bg-light">
         <div class="container">
             <h2 class="section-title">Our Services</h2>
             <p class="text-center mb-5">Join us for worship and fellowship</p>
@@ -547,7 +414,6 @@
                         <p class="text-muted"><i class="fas fa-clock me-2"></i>8:00 AM to 1:00 PM</p>
                     </div>
                 </div>
-
                 <div class="col-md-4">
                     <div class="card service-card text-center p-4">
                         <div class="service-icon">
@@ -557,9 +423,9 @@
                         <p>Experience powerful prayer and worship every Wednesday and Friday evening.</p>
                         <p class="text-muted"><i class="fas fa-clock me-2"></i>Wednesday 5:00 PM to 7:00 PM</p>
                         <p class="text-muted"><i class="fas fa-clock me-2"></i>Friday 5:00 PM to 7:00 PM</p>
+                        <!-- <p class="text-muted"><i class="fas fa-clock me-2"></i>Saturday and thursdays: Choir Practice and Cleaning</p> -->
                     </div>
                 </div>
-
                 <div class="col-md-4">
                     <div class="card service-card text-center p-4">
                         <div class="service-icon">
@@ -591,10 +457,10 @@
                         <div class="card-body">
                             <h5 class="card-title">Location</h5>
                             <p class="card-text">Seeta, Bagala Zone,<br> Mukono District, Uganda</p>
+                            <!-- <a href="#" class="btn btn-outline-primary">Learn More</a> -->
                         </div>
                     </div>
                 </div>
-
                 <div class="col-md-6 col-lg-4">
                     <div class="card event-card">
                         <div class="event-date">
@@ -604,10 +470,10 @@
                         <div class="card-body">
                             <h5 class="card-title">Location</h5>
                             <p class="card-text">Kashalazi, Buhumuro, Sheema District, Uganda</p>
+                            <!-- <a href="#" class="btn btn-outline-primary">Register</a> -->
                         </div>
                     </div>
                 </div>
-
                 <div class="col-md-6 col-lg-4">
                     <div class="card event-card">
                         <div class="event-date">
@@ -618,11 +484,11 @@
                             <h5 class="card-title">Location</h5>
                             <p class="card-text">Namagera Village, Butagaya Subcounty, Kagoma County, Jinja District,
                                 Uganda</p>
+                            <!-- <a href="#" class="btn btn-outline-primary">Register</a> -->
                         </div>
                     </div>
                 </div>
             </div>
-
             <div class="row">
                 <div class="col-md-6 col-lg-4">
                     <div class="card event-card">
@@ -633,10 +499,10 @@
                         <div class="card-body">
                             <h5 class="card-title">Location</h5>
                             <p class="card-text">Kakuuto Village,<br>Rwampara District, Uganda</p>
+                            <!-- <a href="#" class="btn btn-outline-primary">Learn More</a> -->
                         </div>
                     </div>
                 </div>
-
                 <div class="col-md-6 col-lg-4">
                     <div class="card event-card">
                         <div class="event-date">
@@ -646,10 +512,10 @@
                         <div class="card-body">
                             <h5 class="card-title">Location</h5>
                             <p class="card-text">Kakabala Village,<br>Kyegegwa District, Uganda</p>
+                            <!-- <a href="#" class="btn btn-outline-primary">Register</a> -->
                         </div>
                     </div>
                 </div>
-
                 <div class="col-md-6 col-lg-4">
                     <div class="card event-card">
                         <div class="event-date">
@@ -659,11 +525,16 @@
                         <div class="card-body">
                             <h5 class="card-title">Location</h5>
                             <p class="card-text">Kyalenga Village, Migongwe Subcounty, <br>Kyegegwa District, Uganda</p>
+                            <!-- <a href="#" class="btn btn-outline-primary">Register</a> -->
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+
+            <!-- <div class="text-center mt-4">
+                <a href="#" class="btn btn-primary">View All Events</a>
+            </div>
+        </div> -->
     </section>
 
     <!-- Ministries Section -->
@@ -687,7 +558,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="col-md-6 mb-4">
                     <div class="d-flex">
                         <div class="flex-shrink-0">
@@ -701,7 +571,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="col-md-6 mb-4">
                     <div class="d-flex">
                         <div class="flex-shrink-0">
@@ -715,7 +584,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="col-md-6 mb-4">
                     <div class="d-flex">
                         <div class="flex-shrink-0">
@@ -724,13 +592,11 @@
                         <div class="flex-grow-1 ms-3">
                             <h4>Worship Ministry</h4>
                             <p>Our worship team leads the congregation in heartfelt praise and worship during our
-                                services.
-                                If you have musical gifts, consider joining our team.</p>
+                                services. If you have musical gifts, consider joining our team.</p>
                             <a href="#" class="btn btn-sm btn-outline-primary">Join Team</a>
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
@@ -769,9 +635,9 @@
                     </div>
 
                     <div class="text-center mt-4">
-                        <p class="mb-3 text-white">Click any option above to view giving details</p>
+                        <p class="mb-3 text-white">Click any option above to view banking details</p>
                         <button class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#donationModal">
-                            <i class="fas fa-info-circle me-2"></i>View Payment Details
+                            <i class="fas fa-info-circle me-2"></i>View All Payment Methods
                         </button>
                     </div>
                 </div>
@@ -792,16 +658,16 @@
                             <div class="row">
                                 <div class="col-md-6 mb-3">
                                     <label for="name" class="form-label">Name</label>
-                                    <input type="text" class="form-control" id="name" required />
+                                    <input type="text" class="form-control" id="name" required>
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <label for="email" class="form-label">Email</label>
-                                    <input type="email" class="form-control" id="email" required />
+                                    <input type="email" class="form-control" id="email" required>
                                 </div>
                             </div>
                             <div class="mb-3">
                                 <label for="subject" class="form-label">Subject</label>
-                                <input type="text" class="form-control" id="subject" required />
+                                <input type="text" class="form-control" id="subject" required>
                             </div>
                             <div class="mb-3">
                                 <label for="message" class="form-label">Message</label>
@@ -817,7 +683,7 @@
                 <div class="col-md-4 text-center mb-4">
                     <i class="fas fa-map-marker-alt fa-2x text-primary mb-3"></i>
                     <h5>Address</h5>
-                    <p>Seeta<br />Mukono District, Uganda</p>
+                    <p>Seeta<br>Mukono District, Uganda</p>
                 </div>
                 <div class="col-md-4 text-center mb-4">
                     <i class="fas fa-phone fa-2x text-primary mb-3"></i>
@@ -879,25 +745,23 @@
         <i class="fas fa-arrow-up"></i>
     </a>
 
-    <!-- Donation Modal -->
+    <!-- Donation Modal - Information Only -->
     <div class="modal fade" id="donationModal" tabindex="-1" aria-labelledby="donationModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header bg-primary text-white">
                     <h5 class="modal-title" id="donationModalLabel">
-                        <i class="fas fa-donate me-2"></i>Giving Information
+                        <i class="fas fa-donate me-2"></i>Donation Information
                     </h5>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
-                        aria-label="Close"></button>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-
                 <div class="modal-body">
                     <div class="text-center mb-4">
                         <i class="fas fa-church fa-3x text-primary mb-3"></i>
                         <h4 class="mb-2">Support Divine Power of Christ Ministries</h4>
                         <p class="text-muted">Choose your preferred payment method below</p>
                     </div>
-
+                    
                     <!-- Bank Transfer Section -->
                     <div class="card mb-3 border-primary">
                         <div class="card-header bg-primary text-white">
@@ -922,41 +786,65 @@
                             </div>
                         </div>
                     </div>
-
-                    <!-- NEW: Airtel Money Merchant Section (replaces phone-number mobile money list) -->
-                    <div class="card mb-4 border-danger">
-                        <div class="card-header bg-danger text-white">
+                    
+                    <!-- Mobile Money Section -->
+                    <div class="card mb-4 border-success">
+                        <div class="card-header bg-success text-white">
                             <h6 class="mb-0">
-                                <i class="fas fa-qrcode me-2"></i> Airtel Money Merchant (Scan to Pay)
+                                <i class="fas fa-mobile-alt me-2"></i> Mobile Money Payments
                             </h6>
                         </div>
                         <div class="card-body">
-                            <div class="row align-items-center g-3">
-                                <div class="col-md-5 text-center">
-                                    <!-- Put the QR image in your site, e.g. /img/airtel-merchant.jpeg -->
-                                    <img src="/img/Merchant-ID.jpg" class="img-fluid rounded shadow-sm"
-                                        alt="Airtel Money Merchant QR">
-                                    <div class="text-muted small mt-2">Scan to pay</div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <strong class="d-block">Primary Numbers:</strong>
+                                        <div class="mt-2">
+                                            <div class="mb-2">
+                                                <i class="fas fa-phone text-primary me-2"></i>
+                                                <span class="fw-bold">+256 771 696 769</span><br>
+                                                <small class="text-muted ms-4">Twesigye Ambroe</small>
+                                            </div>
+                                            <div class="mb-2">
+                                                <i class="fas fa-phone text-primary me-2"></i>
+                                                <span class="fw-bold">+256 752 626 203</span><br>
+                                                <small class="text-muted ms-4">Twesigye Ambrose</small>
+                                            </div>
+                                            <div class="mb-2">
+                                                <i class="fas fa-phone text-primary me-2"></i>
+                                                <span class="fw-bold">+256 752 109 637</span><br>
+                                                <small class="text-muted ms-4">Catherine Mpali</small>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="col-md-7">
+                                <div class="col-md-6">
                                     <div class="mb-3">
-                                        <strong class="d-block text-muted">Merchant ID:</strong>
-                                        <span class="fs-3 fw-bold text-danger">6993587</span>
-                                    </div>
-                                    <div class="mb-3">
-                                        <strong class="d-block text-muted">USSD:</strong>
-                                        <span class="fs-5 fw-bold">Dial *185*9#</span>
-                                    </div>
-                                    <div class="alert alert-info mb-0">
-                                        <i class="fas fa-info-circle me-2"></i>
-                                        When paying, add <strong>your name</strong> and the purpose (Tithe / Offering /
-                                        Gift) where applicable.
+                                        <strong class="d-block">Church Account:</strong>
+                                        <div class="mt-2">
+                                            <i class="fas fa-phone text-success me-2"></i>
+                                            <span class="fw-bold">+256 600 562 4728</span><br>
+                                            <small class="text-muted ms-4">Official Church Account</small>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-
+                    
+                    <!-- Important Notes -->
+                    <div class="alert alert-info">
+                        <h6 class="alert-heading">
+                            <i class="fas fa-info-circle me-2"></i>Important Instructions
+                        </h6>
+                        <ul class="mb-0 ps-3">
+                            <li>Please include <strong>your name</strong> as the payment reference</li>
+                            <li>For tithes/offerings, specify the <strong>donation type</strong> in the reference</li>
+                            <li>Contact us for receipt requests via phone or email</li>
+                            <li>God bless you for your generous support!</li>
+                        </ul>
+                    </div>
+                    
                     <!-- Quick Actions -->
                     <div class="text-center mt-4">
                         <p class="text-muted mb-3">
@@ -966,10 +854,11 @@
                         <button type="button" class="btn btn-outline-primary me-2" onclick="copyBankDetails()">
                             <i class="fas fa-copy me-2"></i>Copy Details
                         </button>
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                            Close
+                        </button>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
@@ -986,14 +875,14 @@
                     <form id="prayerForm">
                         <div class="mb-3">
                             <label for="prayerName" class="form-label">Your Name (Optional)</label>
-                            <input type="text" class="form-control" id="prayerName" />
+                            <input type="text" class="form-control" id="prayerName">
                         </div>
                         <div class="mb-3">
                             <label for="prayerRequest" class="form-label">Prayer Request</label>
                             <textarea class="form-control" id="prayerRequest" rows="4" required></textarea>
                         </div>
                         <div class="mb-3 form-check">
-                            <input type="checkbox" class="form-check-input" id="contactMe" />
+                            <input type="checkbox" class="form-check-input" id="contactMe">
                             <label class="form-check-label" for="contactMe">I would like to be contacted</label>
                         </div>
                         <button type="submit" class="btn btn-primary w-100">Submit Request</button>
@@ -1004,7 +893,6 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-
     <script>
         // Back to top button
         const backToTopButton = document.querySelector('.back-to-top');
@@ -1026,6 +914,7 @@
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
+
                 const targetId = this.getAttribute('href');
                 if (targetId === '#') return;
 
@@ -1054,32 +943,30 @@
             prayerModal.hide();
         });
 
-        // Copy giving details function
+        // Initialize tooltips
+        const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+        const tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+            return new bootstrap.Tooltip(tooltipTriggerEl);
+        });
+
+        // Copy bank details function
         function copyBankDetails() {
-            const details = `ABSA BANK UGANDA LTD
-Account Number: 6008605694
-Account Name: Divine Power of Christ Ministries Ltd.
-
-Airtel Money Merchant (Scan to Pay)
-Merchant ID: 6993587
-USSD: Dial *185*9#
-
-Please include your name and donation type (Tithe/Offering/Gift) as reference.`;
-
-            navigator.clipboard.writeText(details).then(() => {
-                alert('Payment details copied to clipboard!');
+            const bankDetails = `ABSA BANK UGANDA LTD\nAccount Number: 6008605694\nAccount Name: Divine Power of Christ Ministries Ltd.\n\nMobile Money:\n+256 771 696 769 (Twesigye Ambroe)\n+256 752 626 203 (Twesigye Ambrose)\n+256 752 109 637 (Catherine Mpali)\n+256 600 562 4728 (Church Account)\n\nPlease include your name as reference.`;
+            
+            navigator.clipboard.writeText(bankDetails).then(() => {
+                alert('Bank details copied to clipboard!');
             }).catch(err => {
                 console.error('Failed to copy: ', err);
                 // Fallback for older browsers
                 const textArea = document.createElement("textarea");
-                textArea.value = details;
+                textArea.value = bankDetails;
                 document.body.appendChild(textArea);
                 textArea.select();
                 try {
                     document.execCommand('copy');
-                    alert('Payment details copied to clipboard!');
+                    alert('Bank details copied to clipboard!');
                 } catch (err) {
-                    alert('Please manually copy the payment details.');
+                    alert('Please manually copy the bank details.');
                 }
                 document.body.removeChild(textArea);
             });
