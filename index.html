@@ -511,6 +511,8 @@
         @media (max-width: 576px) {
             .hero-section {
                 padding: 95px 0;
+                /* Avoid background-attachment: fixed on mobile for performance */
+                background-attachment: scroll;
             }
 
             .leader-photo {
@@ -1393,24 +1395,52 @@
     <script>
         // Hero Section Background Image Rotation
         const heroSection = document.querySelector('.hero-section');
+        // Use desktop/mobile variants for smaller payloads on phones (add -sm images in /img/ if available)
         const heroImages = [
-            '/img/churchInterior.jpg',
-            '/img/churchExterior.jpg',
-            '/img/groupPhoto.jpg',
-            '/img/video-poster.jpg',
-            '/img/membersWorshipping.jpg'
+            { desktop: '/img/churchInterior.jpg', mobile: '/img/churchInterior-sm.jpg' },
+            { desktop: '/img/churchExterior.jpg', mobile: '/img/churchExterior-sm.jpg' },
+            { desktop: '/img/groupPhoto.jpg', mobile: '/img/groupPhoto-sm.jpg' },
+            { desktop: '/img/video-poster.jpg', mobile: '/img/video-poster-sm.jpg' },
+            { desktop: '/img/membersWorshipping.jpg', mobile: '/img/membersWorshipping-sm.jpg' }
         ];
         let currentImageIndex = 0;
 
+        function getImageForViewport(imgObj) {
+            const isMobile = window.matchMedia('(max-width: 576px)').matches;
+            return (isMobile && imgObj.mobile) ? imgObj.mobile : imgObj.desktop;
+        }
+
+        function setHeroBackground(src, fallback) {
+            const pre = new Image();
+            pre.onload = () => { heroSection.style.backgroundImage = `url('${src}')`; };
+            pre.onerror = () => { if (fallback) heroSection.style.backgroundImage = `url('${fallback}')`; };
+            pre.src = src;
+        }
+
         function rotateHeroBackground() {
-            heroSection.style.backgroundImage = `url('${heroImages[currentImageIndex]}')`;
+            const imgObj = heroImages[currentImageIndex];
+            const src = getImageForViewport(imgObj);
+            const fallback = imgObj.desktop;
+            setHeroBackground(src, fallback);
             currentImageIndex = (currentImageIndex + 1) % heroImages.length;
         }
 
         // Initialize with first image
         rotateHeroBackground();
         // Change image every 8 seconds
-        setInterval(rotateHeroBackground, 8000);
+        const heroInterval = setInterval(rotateHeroBackground, 8000);
+
+        // Refresh background immediately when viewport changes (so mobile/desktop swap is instant)
+        let resizeTimeout;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(() => {
+                // show the current (most recent) image adapted to the new viewport
+                const index = (currentImageIndex - 1 + heroImages.length) % heroImages.length;
+                const imgObj = heroImages[index];
+                setHeroBackground(getImageForViewport(imgObj), imgObj.desktop);
+            }, 150);
+        });
 
         // Back to top button
         const backToTopButton = document.querySelector('.back-to-top');
