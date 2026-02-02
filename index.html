@@ -66,15 +66,33 @@
         /* HERO */
         .hero-section {
             position: relative;
-            background:
-                radial-gradient(900px 500px at 10% 10%, rgba(212, 175, 55, .20), transparent 60%),
-                linear-gradient(rgba(0, 0, 0, 0.62), rgba(0, 0, 0, 0.62)),
-                url('https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86?auto=format&fit=crop&w=1500&q=80');
             background-size: cover;
             background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
             color: white;
             padding: 150px 0;
             text-align: center;
+            transition: background-image 1.5s ease-in-out;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(900px 500px at 10% 10%, rgba(212, 175, 55, .20), transparent 60%),
+                linear-gradient(rgba(0, 0, 0, 0.62), rgba(0, 0, 0, 0.62));
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .hero-section > * {
+            position: relative;
+            z-index: 2;
         }
 
         .hero-section h1 {
@@ -546,6 +564,7 @@
         <div class="container">
             <div class="hero-pill mx-auto"><i class="fa-solid fa-dove"></i> Worship • Fellowship • Growth</div>
             <h1>Welcome to Divine Power Of Christ Ministries</h1>
+            <h2 style="color: #537db8; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;"> <strong>Call +256 - 771 696 769</strong></h2>
             <p class="lead mb-4">A place of worship, fellowship, and spiritual growth</p>
             <p class="mb-0">Join us as we seek God's presence and serve our community</p>
             <div class="mt-4 d-flex flex-wrap gap-2 justify-content-center">
@@ -799,7 +818,7 @@
                             </div>
 
                             <div class="g-item g2" data-bs-toggle="modal" data-bs-target="#imageModal"
-                                data-img="/img/gallery-2.jpg" data-title="Prayer & Fellowship">
+                                data-img="/img/gallery-2.jpg" data-title="Sunday School">
                                 <img src="/img/gallery-2.jpg" alt="Gallery image 2">
                                 <div class="g-overlay"></div>
                                 <div class="g-badge"><i class="fa-solid fa-heart me-2"></i>Sunday School</div>
@@ -1368,6 +1387,27 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
+        // Hero Section Background Image Rotation
+        const heroSection = document.querySelector('.hero-section');
+        const heroImages = [
+            '/img/churchInterior.jpg',
+            '/img/churchExterior.jpg',
+            '/img/groupPhoto.jpg',
+            '/img/video-poster.jpg',
+            '/img/membersWorshipping.jpg'
+        ];
+        let currentImageIndex = 0;
+
+        function rotateHeroBackground() {
+            heroSection.style.backgroundImage = `url('${heroImages[currentImageIndex]}')`;
+            currentImageIndex = (currentImageIndex + 1) % heroImages.length;
+        }
+
+        // Initialize with first image
+        rotateHeroBackground();
+        // Change image every 8 seconds
+        setInterval(rotateHeroBackground, 8000);
+
         // Back to top button
         const backToTopButton = document.querySelector('.back-to-top');
 
