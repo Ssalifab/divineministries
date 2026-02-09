@@ -23,10 +23,6 @@
             --shadow-sm: 0 8px 18px rgba(2, 6, 23, .08);
         }
 
-        html {
-            scroll-behavior: smooth;
-        }
-
         body {
             font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
             line-height: 1.7;
@@ -38,11 +34,7 @@
             text-decoration: none;
         }
 
-        /* ======= NAV ======= */
-        .navbar {
-            backdrop-filter: blur(10px);
-        }
-
+        /* NAV */
         .navbar-brand {
             font-weight: 900;
             font-size: 1.45rem;
@@ -50,27 +42,28 @@
         }
 
         .nav-link {
-            font-weight: 800;
+            font-weight: 700;
             margin: 0 6px;
-            opacity: .92;
+            opacity: .9;
             position: relative;
-            border-radius: 999px;
-            padding: .55rem .9rem !important;
-            transition: background .18s ease, opacity .18s ease, transform .18s ease;
         }
 
         .nav-link:hover {
             opacity: 1;
-            background: rgba(44, 90, 160, .08);
-            transform: translateY(-1px);
         }
 
-        .nav-link.active {
-            opacity: 1;
-            background: rgba(212, 175, 55, .18);
+        .nav-link.active::after {
+            content: "";
+            position: absolute;
+            left: .6rem;
+            right: .6rem;
+            bottom: .35rem;
+            height: 2px;
+            background: var(--secondary);
+            border-radius: 999px;
         }
 
-        /* ======= HERO ======= */
+        /* HERO */
         .hero-section {
             position: relative;
             background-size: cover;
@@ -81,50 +74,20 @@
             padding: 150px 0;
             text-align: center;
             transition: background-image 1.5s ease-in-out;
-            overflow: hidden;
         }
 
         .hero-section::before {
             content: '';
             position: absolute;
-            inset: 0;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
             background:
-                radial-gradient(900px 500px at 10% 10%, rgba(212, 175, 55, .24), transparent 60%),
-                radial-gradient(700px 420px at 90% 30%, rgba(44, 90, 160, .25), transparent 60%),
+                radial-gradient(900px 500px at 10% 10%, rgba(212, 175, 55, .20), transparent 60%),
                 linear-gradient(rgba(0, 0, 0, 0.62), rgba(0, 0, 0, 0.62));
             pointer-events: none;
             z-index: 1;
-        }
-
-        .hero-section::after {
-            /* subtle animated shine */
-            content: "";
-            position: absolute;
-            top: -40%;
-            left: -60%;
-            width: 220%;
-            height: 220%;
-            background: radial-gradient(circle at 20% 20%, rgba(255, 255, 255, .12), transparent 45%);
-            animation: heroGlow 10s ease-in-out infinite;
-            z-index: 1;
-            pointer-events: none;
-        }
-
-        @keyframes heroGlow {
-            0% {
-                transform: translate(0, 0);
-                opacity: .45;
-            }
-
-            50% {
-                transform: translate(6%, 4%);
-                opacity: .65;
-            }
-
-            100% {
-                transform: translate(0, 0);
-                opacity: .45;
-            }
         }
 
         .hero-section>* {
@@ -132,16 +95,11 @@
             z-index: 2;
         }
 
-        .hero-section h2 {
-            font-size: clamp(2.1rem, 4.2vw, 3.4rem);
+        .hero-section h1 {
+            font-size: clamp(2.1rem, 4.2vw, 3.5rem);
             font-weight: 950;
-            margin-bottom: 10px;
+            margin-bottom: 14px;
             line-height: 1.08;
-        }
-
-        .hero-section h3 {
-            margin-top: 6px;
-            margin-bottom: 10px;
         }
 
         .hero-section .lead {
@@ -153,164 +111,15 @@
             display: inline-flex;
             gap: .55rem;
             align-items: center;
-            padding: .42rem .9rem;
+            padding: .38rem .85rem;
             border-radius: 999px;
             border: 1px solid rgba(255, 255, 255, .18);
-            background: rgba(255, 255, 255, .12);
-            font-weight: 900;
+            background: rgba(255, 255, 255, .10);
+            font-weight: 800;
             margin-bottom: 14px;
-            box-shadow: 0 10px 22px rgba(0, 0, 0, .16);
         }
 
-        /* NEW: HERO TRUST STRIP (attention catching) */
-        .hero-trust {
-            margin-top: 18px;
-            display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 10px;
-            max-width: 980px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .trust-card {
-            position: relative;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-
-            /* compact height */
-            padding: 10px 12px;
-            border-radius: 14px;
-
-            background: rgba(255, 255, 255, 0.14);
-            border: 1px solid rgba(255, 255, 255, 0.18);
-            box-shadow: 0 14px 26px rgba(0, 0, 0, 0.16);
-            backdrop-filter: blur(8px);
-            overflow: hidden;
-            transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
-            text-align: left;
-        }
-
-        .trust-card::before {
-            content: "";
-            position: absolute;
-            inset: 0 0 auto 0;
-            height: 3px;
-            background: linear-gradient(90deg, rgba(212, 175, 55, 1), rgba(44, 90, 160, 1));
-            opacity: .95;
-        }
-
-        .trust-card::after {
-            content: "";
-            position: absolute;
-            width: 160px;
-            height: 160px;
-            right: -75px;
-            top: -75px;
-            border-radius: 50%;
-            opacity: .20;
-        }
-
-        .trust-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 18px 32px rgba(0, 0, 0, 0.22);
-            background: rgba(255, 255, 255, 0.18);
-        }
-
-        .trust-icon {
-            width: 40px;
-            height: 40px;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex: 0 0 40px;
-            color: #fff;
-            font-size: 16px;
-            box-shadow: 0 12px 18px rgba(0, 0, 0, .22);
-            position: relative;
-        }
-
-        .trust-icon::after {
-            content: "";
-            position: absolute;
-            inset: -6px;
-            border-radius: 16px;
-            border: 2px solid rgba(255, 255, 255, 0.35);
-            opacity: 0;
-            transform: scale(0.92);
-            animation: trustPulse 2.6s ease-in-out infinite;
-        }
-
-        @keyframes trustPulse {
-            0% {
-                opacity: 0;
-                transform: scale(0.92);
-            }
-
-            35% {
-                opacity: .35;
-                transform: scale(1.02);
-            }
-
-            70% {
-                opacity: 0;
-                transform: scale(1.12);
-            }
-
-            100% {
-                opacity: 0;
-                transform: scale(0.92);
-            }
-        }
-
-        .trust-title {
-            margin: 0 0 2px;
-            font-weight: 950;
-            font-size: .95rem;
-            color: #ffffff;
-            line-height: 1.1;
-        }
-
-        .trust-text {
-            margin: 0;
-            font-size: .85rem;
-            color: rgba(255, 255, 255, .86);
-            line-height: 1.25;
-
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-        }
-
-        /* Card color variants */
-        .hero-trust .trust-card:nth-child(1)::after {
-            background: radial-gradient(circle at 30% 30%, rgba(212, 175, 55, 1), rgba(212, 175, 55, 0));
-        }
-
-        .hero-trust .trust-card:nth-child(1) .trust-icon {
-            background: linear-gradient(135deg, #d4af37, #b88b1e);
-        }
-
-        .hero-trust .trust-card:nth-child(2)::after {
-            background: radial-gradient(circle at 30% 30%, rgba(44, 90, 160, 1), rgba(44, 90, 160, 0));
-        }
-
-        .hero-trust .trust-card:nth-child(2) .trust-icon {
-            background: linear-gradient(135deg, #2c5aa0, #1b3a66);
-        }
-
-        .hero-trust .trust-card:nth-child(3)::after {
-            background: radial-gradient(circle at 30% 30%, rgba(139, 0, 0, 1), rgba(139, 0, 0, 0));
-        }
-
-        .hero-trust .trust-card:nth-child(3) .trust-icon {
-            background: linear-gradient(135deg, #8b0000, #b21b1b);
-        }
-
-        /* ======= SECTION TITLES ======= */
+        /* SECTION TITLES */
         .section-title {
             position: relative;
             margin-bottom: 40px;
@@ -330,7 +139,7 @@
             border-radius: 999px;
         }
 
-        /* ======= CARDS ======= */
+        /* CARDS */
         .service-card,
         .event-card,
         .leader-card,
@@ -341,7 +150,7 @@
             overflow: hidden;
             height: 100%;
             background: #fff;
-            transition: transform .25s ease, box-shadow .25s ease;
+            transition: transform .25s ease;
         }
 
         .service-card:hover,
@@ -349,7 +158,6 @@
         .leader-card:hover,
         .soft-card:hover {
             transform: translateY(-6px);
-            box-shadow: var(--shadow);
         }
 
         .service-card {
@@ -377,7 +185,7 @@
             font-weight: 800;
         }
 
-        /* ======= DONATION SECTION ======= */
+        /* DONATION SECTION */
         .donation-section {
             background:
                 radial-gradient(900px 500px at 10% 20%, rgba(212, 175, 55, .22), transparent 60%),
@@ -406,14 +214,13 @@
             transform: translateY(-4px);
         }
 
-        /* ======= BUTTONS ======= */
+        /* BUTTONS */
         .btn-primary {
             background-color: var(--primary);
             border-color: var(--primary);
-            font-weight: 900;
+            font-weight: 800;
             border-radius: 999px;
-            padding: .78rem 1.15rem;
-            box-shadow: 0 12px 22px rgba(44, 90, 160, .25);
+            padding: .75rem 1.1rem;
         }
 
         .btn-primary:hover {
@@ -424,7 +231,7 @@
         .btn-outline-primary {
             color: var(--primary);
             border-color: var(--primary);
-            font-weight: 900;
+            font-weight: 800;
             border-radius: 999px;
         }
 
@@ -433,7 +240,7 @@
             border-color: var(--primary);
         }
 
-        /* ======= FORMS ======= */
+        /* FORMS */
         .prayer-request-form,
         .contact-form {
             background: var(--light);
@@ -443,7 +250,7 @@
             border: 1px solid rgba(15, 23, 42, .06);
         }
 
-        /* ======= LEADERSHIP ======= */
+        /* LEADERSHIP */
         .leader-photo {
             width: 100%;
             height: 360px;
@@ -470,7 +277,7 @@
             overflow: hidden;
         }
 
-        /* ======= MEDIA (Gallery + Video) ======= */
+        /* NEW: MEDIA (Gallery + Video) */
         .media-section {
             background: #f6f8fb;
         }
@@ -603,7 +410,7 @@
             display: block;
         }
 
-        /* ======= Footer ======= */
+        /* Footer */
         .footer {
             background: var(--dark);
             color: white;
@@ -632,7 +439,7 @@
             color: rgba(255, 255, 255, .75);
         }
 
-        /* ======= Back to top ======= */
+        /* Back to top */
         .back-to-top {
             position: fixed;
             bottom: 20px;
@@ -656,7 +463,7 @@
             opacity: 1;
         }
 
-        /* ======= MODAL ======= */
+        /* MODAL */
         .modal-content {
             border-radius: var(--radius);
             border: none;
@@ -668,7 +475,7 @@
             color: white;
         }
 
-        /* ======= RESPONSIVE ======= */
+        /* RESPONSIVE */
         @media (max-width: 992px) {
             .navbar-brand {
                 font-size: 1.2rem;
@@ -699,15 +506,12 @@
                 grid-column: span 6;
                 height: 200px;
             }
-
-            .hero-trust {
-                grid-template-columns: 1fr;
-            }
         }
 
         @media (max-width: 576px) {
             .hero-section {
                 padding: 95px 0;
+                /* Avoid background-attachment: fixed on mobile for performance */
                 background-attachment: scroll;
             }
 
@@ -761,46 +565,16 @@
     <section id="home" class="hero-section">
         <div class="container">
             <div class="hero-pill mx-auto"><i class="fa-solid fa-dove"></i> Worship • Fellowship • Growth</div>
-
-            <!-- kept your text content; only styling enhanced -->
             <h2>Welcome to Divine Power Of Christ Ministries</h2>
-
-            <h3 style="color: #537db8; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">
-                Call +256 - 771 696 769
-            </h3>
-
-            <p class="lead mb-3">A place of worship, fellowship, and spiritual growth</p>
+            <h3
+                style="color: #537db8; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">
+                Call +256 - 771 696 769</h3>
+            <p class="lead mb-4">A place of worship, fellowship, and spiritual growth</p>
             <p class="mb-0">Join us as we seek God's presence and serve our community</p>
-
             <div class="mt-4 d-flex flex-wrap gap-2 justify-content-center">
                 <a href="#services" class="btn btn-primary btn-lg">Our Services</a>
                 <a href="#events" class="btn btn-outline-light btn-lg">Our Branches</a>
                 <a href="#media" class="btn btn-outline-light btn-lg"><i class="fa-solid fa-images me-2"></i>Gallery</a>
-            </div>
-
-            <!-- NEW: Attention-catching trust strip (compact height + colorful) -->
-            <div class="hero-trust">
-                <div class="trust-card">
-                    <div class="trust-icon"><i class="fa-solid fa-bible"></i></div>
-                    <div>
-                        <p class="trust-title">Bible-Centered Teaching</p>
-                        <p class="trust-text">Sound doctrine, holiness, and a call to spiritual maturity.</p>
-                    </div>
-                </div>
-                <div class="trust-card">
-                    <div class="trust-icon"><i class="fa-solid fa-people-group"></i></div>
-                    <div>
-                        <p class="trust-title">Welcoming Community</p>
-                        <p class="trust-text">Worship, fellowship, and love for every family and visitor.</p>
-                    </div>
-                </div>
-                <div class="trust-card">
-                    <div class="trust-icon"><i class="fa-solid fa-hands-praying"></i></div>
-                    <div>
-                        <p class="trust-title">Prayer & Restoration</p>
-                        <p class="trust-text">We stand with you in prayer—healing, hope, and breakthrough.</p>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
@@ -836,17 +610,21 @@
                         </div>
                         <div class="carousel-inner">
                             <div class="carousel-item active">
-                                <img loading="lazy" src="/img/churchInterior.jpg" class="d-block w-100 img-fluid rounded"
+                                <img src="/img/churchInterior.jpg" class="d-block w-100 img-fluid rounded"
                                     alt="Church interior">
                             </div>
                             <div class="carousel-item">
-                                <img loading="lazy" src="/img/churchExterior.jpg" class="d-block w-100 img-fluid rounded"
+                                <img src="/img/churchExterior.jpg" class="d-block w-100 img-fluid rounded"
                                     alt="Church exterior">
                             </div>
                             <div class="carousel-item">
-                                <img loading="lazy" src="/img/membersWorshipping.jpg" class="d-block w-100 img-fluid rounded"
+                                <img src="/img/membersWorshipping.jpg" class="d-block w-100 img-fluid rounded"
                                     alt="Members worshipping together during a Sunday service.">
                             </div>
+                            <!-- <div class="carousel-item">
+                                <img src="/img/sundaySchoolService.png" class="d-block w-100 img-fluid rounded"
+                                    alt="Sunday School group during a Sunday service.">
+                            </div> -->
                         </div>
                         <button class="carousel-control-prev" type="button" data-bs-target="#churchCarousel"
                             data-bs-slide="prev">
@@ -874,7 +652,7 @@
                 <!-- Head of Ministry -->
                 <div class="col-md-6 col-lg-4">
                     <div class="card leader-card">
-                        <img loading="lazy" src="/img/Apostle-Ambrose.jpg" class="leader-photo" alt="Head of Ministry">
+                        <img src="/img/Apostle-Ambrose.jpg" class="leader-photo" alt="Head of Ministry">
                         <div class="card-body">
                             <div class="leader-role mb-2"><i class="fa-solid fa-church me-2"></i>Head of Ministry</div>
                             <h5 class="leader-name">Apostle Ambrose Twesigye</h5>
@@ -936,7 +714,7 @@
                 <!-- Music Director -->
                 <div class="col-md-6 col-lg-4">
                     <div class="card leader-card">
-                        <img loading="lazy" src="/img/Music-Director.jpeg" class="leader-photo" alt="Music Director">
+                        <img src="/img/Music-Director.jpeg" class="leader-photo" alt="Music Director">
                         <div class="card-body">
                             <div class="leader-role mb-2"><i class="fa-solid fa-music me-2"></i>Music Director</div>
                             <h5 class="leader-name">Mpali Catherine</h5>
@@ -971,7 +749,7 @@
                 <!-- Church Administrator -->
                 <div class="col-md-12 col-lg-4">
                     <div class="card leader-card">
-                        <img loading="lazy" src="/img/churchAdmin.jpeg" class="leader-photo" alt="Church Administrator">
+                        <img src="/img/churchAdmin.jpeg" class="leader-photo" alt="Church Administrator">
                         <div class="card-body">
                             <div class="leader-role mb-2"><i class="fa-solid fa-user-shield me-2"></i>Administrator
                             </div>
@@ -1065,42 +843,42 @@
                         <div class="gallery-grid">
                             <div class="g-item g1" data-bs-toggle="modal" data-bs-target="#imageModal"
                                 data-img="/img/gallery-1.jpg" data-title="Worship Service">
-                                <img loading="lazy" src="/img/gallery-1.jpg" alt="Gallery image 1">
+                                <img src="/img/gallery-1.jpg" alt="Gallery image 1">
                                 <div class="g-overlay"></div>
                                 <div class="g-badge"><i class="fa-solid fa-camera me-2"></i>Worship</div>
                             </div>
 
                             <div class="g-item g2" data-bs-toggle="modal" data-bs-target="#imageModal"
                                 data-img="/img/gallery-2.jpg" data-title="Sunday School">
-                                <img loading="lazy" src="/img/gallery-2.jpg" alt="Gallery image 2">
+                                <img src="/img/gallery-2.jpg" alt="Gallery image 2">
                                 <div class="g-overlay"></div>
                                 <div class="g-badge"><i class="fa-solid fa-heart me-2"></i>Sunday School</div>
                             </div>
 
                             <div class="g-item g3" data-bs-toggle="modal" data-bs-target="#imageModal"
                                 data-img="/img/gallery-3.jpg" data-title="Choir & Praise">
-                                <img loading="lazy" src="/img/gallery-3.jpg" alt="Gallery image 3">
+                                <img src="/img/gallery-3.jpg" alt="Gallery image 3">
                                 <div class="g-overlay"></div>
                                 <div class="g-badge"><i class="fa-solid fa-music me-2"></i>Praise</div>
                             </div>
 
                             <div class="g-item g4" data-bs-toggle="modal" data-bs-target="#imageModal"
                                 data-img="/img/gallery-4.jpg" data-title="Outreach">
-                                <img loading="lazy" src="/img/gallery-4.jpg" alt="Gallery image 4">
+                                <img src="/img/gallery-4.jpg" alt="Gallery image 4">
                                 <div class="g-overlay"></div>
                                 <div class="g-badge"><i class="fa-solid fa-handshake-angle me-2"></i>Outreach</div>
                             </div>
 
                             <div class="g-item g5" data-bs-toggle="modal" data-bs-target="#imageModal"
                                 data-img="/img/gallery-5.jpg" data-title="Sunday Gathering">
-                                <img loading="lazy" src="/img/gallery-5.jpg" alt="Gallery image 5">
+                                <img src="/img/gallery-5.jpg" alt="Gallery image 5">
                                 <div class="g-overlay"></div>
                                 <div class="g-badge"><i class="fa-solid fa-people-group me-2"></i>Gathering</div>
                             </div>
 
                             <div class="g-item g6" data-bs-toggle="modal" data-bs-target="#imageModal"
                                 data-img="/img/gallery-6.jpg" data-title="Prayer Time">
-                                <img loading="lazy" src="/img/gallery-6.jpg" alt="Gallery image 6">
+                                <img src="/img/gallery-6.jpg" alt="Gallery image 6">
                                 <div class="g-overlay"></div>
                                 <div class="g-badge"><i class="fa-solid fa-hands-praying me-2"></i>Prayer</div>
                             </div>
@@ -1313,8 +1091,7 @@
                                 families in need within
                                 our community. We believe in demonstrating God's love through practical acts of service.
                             </p>
-                            <a href="#" class="btn btn-sm btn-outline-primary" data-bs-toggle="modal"
-                                data-bs-target="#volunteerModal">Volunteer</a>
+                            <a href="#" class="btn btn-sm btn-outline-primary">Volunteer</a>
                         </div>
                     </div>
                 </div>
@@ -1360,8 +1137,7 @@
                             <p class="text-muted">Our worship team leads the congregation in heartfelt praise and
                                 worship during our services.
                                 If you have musical gifts, consider joining our team.</p>
-                            <a href="#" class="btn btn-sm btn-outline-primary" data-bs-toggle="modal"
-                                data-bs-target="#joinTeamModal">Join Team</a>
+                            <a href="#" class="btn btn-sm btn-outline-primary">Join Team</a>
                         </div>
                     </div>
                 </div>
@@ -1423,7 +1199,9 @@
             <div class="row">
                 <div class="col-md-8 mx-auto">
                     <div class="contact-form">
-                        <form id="contactForm" action="https://formsubmit.co/info@divinepowerofchrist.org" method="POST">
+                        <form id="contactForm" action="https://formsubmit.co/info@divinepowerofchrist.org"
+                            method="POST">
+                            <!-- Send to info@divinepowerofchrist.org via Formsubmit.co -->
                             <input type="hidden" name="_subject" value="Website Contact: New message" />
                             <input type="hidden" name="_captcha" value="false" />
 
@@ -1572,7 +1350,7 @@
                         <div class="card-body">
                             <div class="row align-items-center g-3">
                                 <div class="col-md-5 text-center">
-                                    <img loading="lazy" src="/img/Merchant-ID.jpg" class="img-fluid rounded shadow-sm"
+                                    <img src="/img/Merchant-ID.jpg" class="img-fluid rounded shadow-sm"
                                         alt="Airtel Money Merchant QR">
                                     <div class="text-muted small mt-2">Scan to pay</div>
                                 </div>
@@ -1594,7 +1372,6 @@
                             </div>
                         </div>
                     </div>
-
                     <!-- MTN Merchant Section -->
                     <div class="card mb-4 border-warning">
                         <div class="card-header bg-warning text-white">
@@ -1605,7 +1382,8 @@
                         <div class="card-body">
                             <div class="row align-items-center g-3">
                                 <div class="col-md-5 text-center">
-                                    <img loading="lazy" src="/img/mtn.jpg" class="img-fluid rounded shadow-sm" alt="MTN Momo QR">
+                                    <img src="/img/mtn.jpg" class="img-fluid rounded shadow-sm"
+                                        alt="MTN Momo QR">
                                     <div class="text-muted small mt-2">MTN Momo</div>
                                 </div>
                                 <div class="col-md-7">
@@ -1627,7 +1405,6 @@
                             </div>
                         </div>
                     </div>
-
                     <!-- Quick Actions -->
                     <div class="text-center mt-4">
                         <p class="text-muted mb-3">
@@ -1675,93 +1452,12 @@
         </div>
     </div>
 
-    <div class="modal fade" id="volunteerModal" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header bg-primary text-white">
-                    <h5 class="modal-title">Join Our Volunteer Team</h5>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
-                        aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form id="volunteerForm" action="https://formsubmit.co/info@divinepowerofchrist.org">
-                        <div class="mb-3">
-                            <label for="volunteerName" class="form-label fw-bold">Full Name</label>
-                            <input type="text" class="form-control" id="volunteerName" name="name" required />
-                        </div>
-                        <div class="mb-3">
-                            <label for="volunteerEmail" class="form-label fw-bold">Email Address</label>
-                            <input type="email" class="form-control" id="volunteerEmail" name="email" required />
-                        </div>
-                        <div class="mb-3">
-                            <label for="volunteerPhone" class="form-label fw-bold">Phone Number</label>
-                            <input type="tel" class="form-control" id="volunteerPhone" name="phone" />
-                        </div>
-                        <div class="mb-3">
-                            <label for="volunteerMinistry" class="form-label fw-bold">Ministry of Interest</label>
-                            <select class="form-control" id="volunteerMinistry" name="ministry" required>
-                                <option value="">Select a ministry...</option>
-                                <option value="Helping People in Need">Helping People in Need</option>
-                                <option value="Children's Ministry">Children's Ministry</option>
-                                <option value="Worship Ministry">Worship Ministry</option>
-                                <option value="Prayer Ministry">Prayer Ministry</option>
-                                <option value="Other">Other</option>
-                            </select>
-                        </div>
-                        <div class="mb-3">
-                            <label for="volunteerMessage" class="form-label fw-bold">Tell Us About Yourself</label>
-                            <textarea class="form-control" id="volunteerMessage" name="message" rows="4" placeholder="Share your interests and skills..." required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary w-100">Submit Volunteer Application</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal fade" id="joinTeamModal" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header bg-primary text-white">
-                    <h5 class="modal-title">Join Our Worship Team</h5>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
-                        aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form id="joinTeamForm" action="https://formsubmit.co/info@divinepowerofchrist.org">
-                        <div class="mb-3">
-                            <label for="teamName" class="form-label fw-bold">Full Name</label>
-                            <input type="text" class="form-control" id="teamName" name="name" required />
-                        </div>
-                        <div class="mb-3">
-                            <label for="teamEmail" class="form-label fw-bold">Email Address</label>
-                            <input type="email" class="form-control" id="teamEmail" name="email" required />
-                        </div>
-                        <div class="mb-3">
-                            <label for="teamPhone" class="form-label fw-bold">Phone Number</label>
-                            <input type="tel" class="form-control" id="teamPhone" name="phone" />
-                        </div>
-                        <div class="mb-3">
-                            <label for="teamInstruments" class="form-label fw-bold">Musical Instruments/Skills</label>
-                            <input type="text" class="form-control" id="teamInstruments" name="instruments" placeholder="e.g., Guitar, Piano, Vocals, etc." required />
-                        </div>
-                        <div class="mb-3">
-                            <label for="teamExperience" class="form-label fw-bold">Musical Experience</label>
-                            <textarea class="form-control" id="teamExperience" name="experience" rows="4" placeholder="Tell us about your musical background and experience..." required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary w-100">Submit Application</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
         // Hero Section Background Image Rotation
         const heroSection = document.querySelector('.hero-section');
-
+        // Use desktop/mobile variants for smaller payloads on phones (add -sm images in /img/ if available)
         const heroImages = [
             { desktop: '/img/churchInterior.jpg', mobile: '/img/churchInterior-sm.jpg' },
             { desktop: '/img/churchExterior.jpg', mobile: '/img/churchExterior-sm.jpg' },
@@ -1791,13 +1487,17 @@
             currentImageIndex = (currentImageIndex + 1) % heroImages.length;
         }
 
+        // Initialize with first image
         rotateHeroBackground();
+        // Change image every 8 seconds
         const heroInterval = setInterval(rotateHeroBackground, 8000);
 
+        // Refresh background immediately when viewport changes (so mobile/desktop swap is instant)
         let resizeTimeout;
         window.addEventListener('resize', () => {
             clearTimeout(resizeTimeout);
             resizeTimeout = setTimeout(() => {
+                // show the current (most recent) image adapted to the new viewport
                 const index = (currentImageIndex - 1 + heroImages.length) % heroImages.length;
                 const imgObj = heroImages[index];
                 setHeroBackground(getImageForViewport(imgObj), imgObj.desktop);
@@ -1892,104 +1592,10 @@
 
         document.getElementById('prayerForm').addEventListener('submit', function (e) {
             e.preventDefault();
-            const form = this;
-            const submitBtn = form.querySelector('button[type="submit"]');
-            if (submitBtn) submitBtn.disabled = true;
-
-            const formData = new FormData(form);
-            const action = 'https://formsubmit.co/info@divinepowerofchrist.org';
-            formData.append('subject', 'New Prayer Request');
-
-            fetch(action, {
-                method: 'POST',
-                body: formData,
-                headers: { 'Accept': 'application/json' }
-            })
-                .then(response => {
-                    if (response.ok) {
-                        alert('Thank you for sharing your prayer request. Our prayer team will be lifting you up in prayer.');
-                        form.reset();
-                        const prayerModal = bootstrap.Modal.getInstance(document.getElementById('prayerModal'));
-                        prayerModal.hide();
-                    } else {
-                        return response.json().then(data => Promise.reject(data));
-                    }
-                })
-                .catch(() => {
-                    alert('Thank you for your prayer request. Please also email info@divinepowerofchrist.org if you would like us to follow up with you.');
-                    this.reset();
-                    const prayerModal = bootstrap.Modal.getInstance(document.getElementById('prayerModal'));
-                    prayerModal.hide();
-                })
-                .finally(() => {
-                    if (submitBtn) submitBtn.disabled = false;
-                });
-        });
-
-        document.getElementById('volunteerForm').addEventListener('submit', function (e) {
-            e.preventDefault();
-            const form = this;
-            const submitBtn = form.querySelector('button[type="submit"]');
-            if (submitBtn) submitBtn.disabled = true;
-
-            const formData = new FormData(form);
-            const action = form.action || 'https://formsubmit.co/info@divinepowerofchrist.org';
-            formData.append('subject', 'New Volunteer Application');
-
-            fetch(action, {
-                method: 'POST',
-                body: formData,
-                headers: { 'Accept': 'application/json' }
-            })
-                .then(response => {
-                    if (response.ok) {
-                        alert('Thank you for your volunteer application! We will contact you soon.');
-                        form.reset();
-                        const volunteerModal = bootstrap.Modal.getInstance(document.getElementById('volunteerModal'));
-                        volunteerModal.hide();
-                    } else {
-                        return response.json().then(data => Promise.reject(data));
-                    }
-                })
-                .catch(() => {
-                    alert('Sorry — there was a problem sending your application. Please email info@divinepowerofchrist.org directly.');
-                })
-                .finally(() => {
-                    if (submitBtn) submitBtn.disabled = false;
-                });
-        });
-
-        document.getElementById('joinTeamForm').addEventListener('submit', function (e) {
-            e.preventDefault();
-            const form = this;
-            const submitBtn = form.querySelector('button[type="submit"]');
-            if (submitBtn) submitBtn.disabled = true;
-
-            const formData = new FormData(form);
-            const action = form.action || 'https://formsubmit.co/info@divinepowerofchrist.org';
-            formData.append('subject', 'New Worship Team Application');
-
-            fetch(action, {
-                method: 'POST',
-                body: formData,
-                headers: { 'Accept': 'application/json' }
-            })
-                .then(response => {
-                    if (response.ok) {
-                        alert('Thank you for your application! We look forward to having you on our worship team. We will contact you soon.');
-                        form.reset();
-                        const joinTeamModal = bootstrap.Modal.getInstance(document.getElementById('joinTeamModal'));
-                        joinTeamModal.hide();
-                    } else {
-                        return response.json().then(data => Promise.reject(data));
-                    }
-                })
-                .catch(() => {
-                    alert('Sorry — there was a problem sending your application. Please email info@divinepowerofchrist.org directly.');
-                })
-                .finally(() => {
-                    if (submitBtn) submitBtn.disabled = false;
-                });
+            alert('Thank you for sharing your prayer request. Our prayer team will be lifting you up in prayer.');
+            this.reset();
+            const prayerModal = bootstrap.Modal.getInstance(document.getElementById('prayerModal'));
+            prayerModal.hide();
         });
 
         // Copy giving details function
